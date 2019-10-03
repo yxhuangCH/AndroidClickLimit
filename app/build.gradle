@@ -26,10 +26,9 @@ android {
 }
 
 aspectjx {
-    //指定只对含有关键字'universal-image-loader', 'AspectJX-Demo/library'的库进行织入扫描，忽略其他库，提升编译效率
-//    includeJarFilter 'universal-image-loader', 'AspectJX-Demo/library'
-//    excludeJarFilter '.jar'
-//    ajcArgs '-Xlint:warning'
+    //关闭AspectJX功能
+    //    enabled true
+    exclude 'com.taobao'
 }
 
 dependencies {
@@ -40,7 +39,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation project(':clicklimit')
+//    implementation project(':clicklimit')
+    implementation 'com.github.yxhuangCH:AndroidClickLimit:1.0.1'
 
     implementation 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
