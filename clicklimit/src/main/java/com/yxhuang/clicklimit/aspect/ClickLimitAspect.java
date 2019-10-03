@@ -102,7 +102,7 @@ public class ClickLimitAspect {
         }
     }
 
-    private void proceedAnSetTimeTag(ProceedingJoinPoint joinPoint, View view) throws Throwable {
+    public void proceedAnSetTimeTag(ProceedingJoinPoint joinPoint, View view) throws Throwable {
         view.setTag(R.integer.yxhuang_click_limit_tag_view, System.currentTimeMillis());
         joinPoint.proceed();
     }
@@ -114,7 +114,7 @@ public class ClickLimitAspect {
      * @param args
      * @return
      */
-    private View getViewFromArgs(Object[] args) {
+    public View getViewFromArgs(Object[] args) {
         if (args != null && args.length > 0) {
             Object arg = args[0];
             if (arg instanceof View) {
@@ -130,7 +130,7 @@ public class ClickLimitAspect {
      * @param lastClickTime
      * @return
      */
-    private boolean canClick(long lastClickTime, int intervalTime) {
+    public boolean canClick(long lastClickTime, int intervalTime) {
         long currentTime = System.currentTimeMillis();
         long realIntervalTime  = currentTime - lastClickTime;
         Log.d(TAG, "canClick currentTime= " + currentTime + " lastClickTime= " + lastClickTime +
